@@ -11,7 +11,7 @@ data class  Claim(
         @Id
         val claimId: String,
         val createdDate: Instant,
-        var consumed: Boolean
+        var consumed: Boolean = false
 )
 
 data class NewClaim @JsonCreator constructor(

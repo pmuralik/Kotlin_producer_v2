@@ -5,16 +5,12 @@ import org.springframework.web.bind.annotation.*
 import java.time.Instant
 
 @RestController
-class ProducerController {
-
-    @Autowired
-    lateinit var clientService: ClientService
+class ProducerController(private var clientService: ClientService) {
 
     @RequestMapping("/")
     fun index() = "This is the producer Application !"
 
     @PostMapping("/newClaim")
-
     fun createClaim(@RequestBody newClaim: NewClaim): Claim {
         val claim = Claim(
                 createdBy = newClaim.createdBy,

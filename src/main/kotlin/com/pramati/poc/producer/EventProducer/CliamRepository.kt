@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CliamRepository : JpaRepository<Claim, String> {
+
+    fun save(claim: Claim) : Claim
 }

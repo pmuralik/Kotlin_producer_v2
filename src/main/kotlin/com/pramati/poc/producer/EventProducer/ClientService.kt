@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ClientService {
-
-    @Autowired
-    lateinit var claimRepository: CliamRepository
+class ClientService( private var claimRepository: CliamRepository) {
 
     fun saveClaim(claim: Claim) {
         claimRepository.save(claim)

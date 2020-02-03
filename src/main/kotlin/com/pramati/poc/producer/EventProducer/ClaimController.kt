@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*
 import java.time.Instant
 
 @RestController
-class ProducerController(private var clientService: ClientService) {
+class ClaimController(private var claimService: ClaimService) {
 
     @RequestMapping("/")
     fun index() = "This is the producer Application !"
@@ -19,7 +19,7 @@ class ProducerController(private var clientService: ClientService) {
                 consumed = false
         )
 
-        clientService.saveClaim(claim)
+        claimService.saveClaim(claim)
 
         return claim
     }

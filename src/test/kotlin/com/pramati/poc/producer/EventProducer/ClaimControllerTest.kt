@@ -18,7 +18,7 @@ import java.time.Instant
 class ClaimControllerTest {
 
 
-    private lateinit var clientService: ClientService
+    private lateinit var claimService: ClaimService
     private lateinit var cliamRepository: CliamRepository
     private lateinit var requestBuilder: ClaimRequestBuilder
 
@@ -28,9 +28,9 @@ class ClaimControllerTest {
     @Before
     fun configureSystemUnderTest() {
         cliamRepository = mockk()
-        clientService = ClientService(cliamRepository)
+        claimService = ClaimService(cliamRepository)
 
-        val mockMvc = MockMvcBuilders.standaloneSetup(ProducerController(clientService))
+        val mockMvc = MockMvcBuilders.standaloneSetup(ClaimController(claimService))
                 .setLocaleResolver(WebTestConfig.fixedLocaleResolver())
                 .setMessageConverters(WebTestConfig.objectMapperHttpMessageConverter())
                 .build()
